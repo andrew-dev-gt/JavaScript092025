@@ -2,7 +2,7 @@ body {
     width: 80%;
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #D0D977;
+    background-color: #779ed9;
 }
 
 .titulo {
@@ -45,6 +45,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin: 10px 0;
+    
 }
 
 th, td {
@@ -54,32 +55,34 @@ th, td {
 }
 
 th {
-    background-color: darkolivegreen;
+    background-color: #546f96;
     font-weight: bold;
     text-align: center;
     color: white;
 }
 
 td {
-    background-color: #FFFFE0;
+    background-color: white;
 }
 
 input {
-    background-color: #FFFFE0;
+    background-color: white;
     padding: 10px 10px;
     font-size: 15px;
     width: 150px;
     border: none;
     border-bottom: solid 1px;
+    border-radius: 25px;
 }
 
 button {
-    background-color: darkolivegreen;
+    background-color: #425776;
     color: white;
     height: 35px;
     font-size: 15px;
     width: 170px;
     cursor: pointer;
+    border-radius: 25px;
 }
 
 label {
@@ -100,4 +103,5 @@ textarea {
     resize: none;
     text-align: left;
     height: 30px;
+    border-radius: 25px;
 }
