@@ -8,15 +8,17 @@
 h1 {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: pink;
+    color: red;
     text-shadow: 1px 1px 4px rgb(142, 94, 102);
+    font-weight: bold;
+    font-size: 35px;
+
 }
 
 button {
     background-color: greenyellow;
     border: none;
-    text-shadow: 1px 1px 4px rgb(30, 37, 20);
-    color: white;
+    color: black;
     padding: 20px;
     cursor: pointer;
     border-radius: 5px;
@@ -36,6 +38,8 @@ ul {
 }
 
 li {
+    font-size: 20px;
+    font-weight: 500;
     background-color: #167fff;
     padding: 25px 10px;
     border-bottom: 4px solid #2c4050;
