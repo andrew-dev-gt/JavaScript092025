@@ -1,36 +1,152 @@
-body{
-    text-align: center;
-    background-color: rgb(53, 149, 160);
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    width: 40%;
-    margin: 0 auto;
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --primary: #1a73e8;
+    --secondary: #5f6368;
+    --text-main: #202124;
+    --accent: #e8f0fe;
+    --border: #dadce0;
 }
 
-.logo img{
-    height: 180px;
-    width: 180px;
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.saldo{
-    font-size: large;
-    font-weight: bolder;
-    font-style: italic;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.saldo p{
-    margin: 1rem;
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
 }
 
-.saldo img{
-    height: 35px;
-    border: 2px solid white;
-    border-radius: 50%;
-    vertical-align: middle;
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 32px;
 }
 
-.file{
+.header {
+    margin-bottom: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.main-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.brand-text h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.brand-text h2 {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--secondary);
+}
+
+.user-info {
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+}
+
+.info-group {
+    margin-bottom: 12px;
+}
+
+.label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--secondary);
+    display: block;
+}
+
+#titular {
+    font-size: 1.1rem;
+    margin-top: 4px;
+}
+
+.account-id {
+    font-family: monospace;
+    font-size: 1rem;
+    background: var(--accent);
+    padding: 4px 8px;
+    border-radius: 4px;
     display: inline-block;
-    
+}
+
+.balance-section {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.balance-card {
+    background: #f8f9fa;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.balance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.currency img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.currency span {
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.amount {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footer-details {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--secondary);
+    line-height: 1.6;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
 }
