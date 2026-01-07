@@ -1,67 +1,94 @@
-// 🐾 Clase base
-class Animal {
-    constructor(nombre, peso, edad) {
-        this.nombre = nombre;
-        this.peso = peso;
-        this.edad = edad;
-    }
+    // Clases de Negocio
+        class Animal {
+            constructor(nombre, peso, edad, tipo) {
+                this.nombre = nombre;
+                this.peso = peso;
+                this.edad = edad;
+                this.tipo = tipo; // Para manejo de iconos internos
+            }
+        }
 
-    informacion() {
-        return `${this.nombre} - ${this.peso} Kg - ${this.edad} años`;
-    }
-}
+        class Perro extends Animal {
+            constructor(nombre, peso, edad, raza) {
+                super(nombre, peso, edad, 'perro');
+                this.raza = raza;
+                this.icon = '🐶';
+            }
+            getExtra() { return { label: 'Raza', value: this.raza }; }
+        }
 
-// 🐶 Subclase Perro
-class Perro extends Animal {
-    constructor(nombre, peso, edad, raza) {
-        super(nombre, peso, edad);
-        this.raza = raza;
-    }
+        class Gato extends Animal {
+            constructor(nombre, peso, edad, sexo) {
+                super(nombre, peso, edad, 'gato');
+                this.sexo = sexo;
+                this.icon = '🐱';
+            }
+            getExtra() { return { label: 'Sexo', value: this.sexo }; }
+        }
 
-    informacion() {
-        return `🐶 ${this.nombre} - ${this.peso} Kg - ${this.edad} años - Raza: ${this.raza}`;
-    }
-}
+        class Conejo extends Animal {
+            constructor(nombre, peso, edad, color) {
+                super(nombre, peso, edad, 'conejo');
+                this.color = color;
+                this.icon = '🐰';
+            }
+            getExtra() { return { label: 'Color', value: this.color }; }
+        }
 
-// 🐱 Subclase Gato
-class Gato extends Animal {
-    constructor(nombre, peso, edad, sexo) {
-        super(nombre, peso, edad);
-        this.sexo = sexo;
-    }
+        // Datos Iniciales
+        const pacientes = [
+            new Perro('Simba', 11, 4, 'Shih Tzu'),
+            new Gato('Ringo', 5, 2, 'Macho'),
+            new Conejo('Dumbo', 3, 1, 'Blanco'),
+            new Perro('Luna', 22, 6, 'Labrador'),
+            new Gato('Mina', 3, 5, 'Hembra'),
+            new Conejo('Tambor', 2, 2, 'Gris')
+        ];
 
-    informacion() {
-        return `🐱 ${this.nombre} - ${this.peso} Kg - ${this.edad} años - Sexo: ${this.sexo}`;
-    }
-}
+        // Lógica de Renderizado
+        function mostrarAnimales() {
+            const container = document.getElementById('listaAnimales');
+            container.innerHTML = ''; // Limpiar
 
-// 🐰 Subclase Conejo
-class Conejo extends Animal {
-    constructor(nombre, peso, edad, color) {
-        super(nombre, peso, edad);
-        this.color = color;
-    }
+            pacientes.forEach((animal, index) => {
+                const extra = animal.getExtra();
+                const card = document.createElement('div');
+                card.className = 'animal-card animate-in';
+                card.style.animationDelay = `${index * 0.1}s`; // Efecto cascada
 
-    informacion() {
-        return `🐰 ${this.nombre} - ${this.peso} Kg - ${this.edad} años - Color: ${this.color}`;
-    }
-}
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="icon-circle">${animal.icon}</div>
+                        <span class="badge">Paciente Activo</span>
+                    </div>
+                    <div class="animal-name">${animal.nombre}</div>
+                    <div class="divider"></div>
+                    <div class="animal-info">
+                        <div class="info-item">
+                            <span class="info-label">Edad</span>
+                            <span class="info-value">${animal.edad} años</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Peso</span>
+                            <span class="info-value">${animal.peso} Kg</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">${extra.label}</span>
+                            <span class="info-value">${extra.value}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Estado</span>
+                            <span class="info-value">Saludable</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📋</span> Ver historial médico
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
 
-// 🐾 Crear instancias de animales
-let perro1 = new Perro('Simba', 11, 4, 'Shih Tzu');
-let gato1 = new Gato('Ringo', 5, 2, 'Macho');
-let conejo1 = new Conejo('Dumbo', 3, 1, 'Blanco');
-
-// Lista de animales
-let animales = [perro1, gato1, conejo1];
-
-// 🧾 Mostrar los animales en la página
-function mostrarAnimales() {
-    let lista = document.getElementById('listaAnimales');
-    lista.innerHTML = ''; // Limpia la lista antes de mostrarla
-    for (let animal of animales) {
-        let item = document.createElement('li');
-        item.innerText = animal.informacion();
-        lista.appendChild(item);
-    }
-}
+        // Eventos
+        document.getElementById('btnMostrar').addEventListener('click', mostrarAnimales);
+    
